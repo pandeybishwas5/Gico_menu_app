@@ -24,7 +24,7 @@ class MenuListView(ListAPIView):
     # filter_backends = [DjangoFilterBackend, OrderingFilter]
 
     def list(self, request, *args, **kwargs):
-        category = request.data.get("category", None)
+        category = request.data.get("category ", None)
         queryset = MenuItem.objects.all()
         if category:
             category_instance = Category.objects.get(name=category)
