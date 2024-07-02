@@ -14,7 +14,7 @@ export default function Navbar() {
                 <Link to="/reservations">Reservations</Link>
                 <Link to="/contact">Contact</Link>
                 <Link to="/about">About</Link>
-                <Link to="/login">Login</Link>
+                <Link to="/login"><i className="fas fa-user"></i> Login</Link>
             </nav>
             <button className="mobile-menu-icon"
                     onClick={() => setIsMobile(!isMobile)}>
