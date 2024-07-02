@@ -32,7 +32,7 @@ export default function Footer() {
                 </div>
             </div>
             <div className="footer-bottom">
-                <p>&copy; {new Date().getFullYear()} MyRestaurant. All Rights Reserved.</p>
+                <p>&copy; {new Date().getFullYear()} GICO Restaurant. All Rights Reserved.</p>
             </div>
         </footer>
     ) 

@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from './components/common/header/Header';
 import Home from './components/home/Home';
 import Footer from './components/common/footer/Footer';
+import CartButton from './components/cartButton/CartButton';
 
 
 
@@ -15,6 +16,7 @@ function App() {
               
       </Routes>
       <Footer />
+      <CartButton />
     </Router>
   );
 }
