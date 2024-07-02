@@ -1,0 +1,66 @@
+.home {
+    text-align: center;
+    padding: 20px;
+}
+
+.welcome {
+    background-color: #f8f8f8;
+    padding: 40px 20px;
+    margin-bottom: 20px;
+}
+
+.welcome h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.welcome p {
+    font-size: 1.2em;
+}
+
+.featured-dishes {
+    padding: 20px;
+}
+
+.featured-dishes h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.dishes {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.dish {
+    margin: 10px;
+    text-align: center;
+}
+
+.dish img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.dish h3 {
+    font-size: 1.5em;
+    margin-top: 10px;
+}
+
+.special-offers {
+    background-color: #f0f0f0;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.special-offers h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.special-offers p {
+    font-size: 1.2em;
+}
