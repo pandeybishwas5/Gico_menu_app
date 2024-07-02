@@ -1,0 +1,26 @@
+.cart-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    background-color: #ecf1e4;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.cart-button img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+}
+
+.cart-button:hover {
+    background-color: #b6ab96;
+    transform: scale(1.1);
+}
