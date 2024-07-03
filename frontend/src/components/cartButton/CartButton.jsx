@@ -1,12 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import './cartbutton.css';
 
-
-export default function CartButton() {
+const CartButton = ({ onClick }) => {
     return (
-        <Link to="/cart" className="cart-button">
+        <button className="cart-button" onClick={onClick}>
             <img src="cartbutton.png" alt="Cart" />
-        </Link>
-    )
+        </button>
+    );
 };
+
+export default CartButton;
