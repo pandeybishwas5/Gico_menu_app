@@ -1,10 +1,11 @@
 import React from 'react';
 import './cartbutton.css';
 
-const CartButton = ({ onClick }) => {
+const CartButton = ({ onClick, cartItemCount }) => {
     return (
         <button className="cart-button" onClick={onClick}>
             <img src="cartbutton.png" alt="Cart" />
+            <span className="cart-item-count">{cartItemCount}</span>
         </button>
     );
 };

@@ -42,6 +42,10 @@ function App() {
         return cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
     };
 
+    const calculateCartItemCount = () => {
+      return cartItems.reduce((total, item) => total + item.quantity, 0);
+  };
+
 
 
   return (
@@ -53,7 +57,7 @@ function App() {
         <Route path="/menuitems" element={<MenuItems />} />   
       </Routes>
       <Footer />
-      <CartButton onClick={() => setIsCartOpen(true)} />
+      <CartButton onClick={() => setIsCartOpen(true)} cartItemCount={calculateCartItemCount()} />
       <CartModal
                 isOpen={isCartOpen}
                 onClose={() => setIsCartOpen(false)}

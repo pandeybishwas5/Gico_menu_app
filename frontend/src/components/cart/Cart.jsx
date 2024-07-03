@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './cart.css';
 
+
 const Cart = () => {
    
     const [cartItems, setCartItems] = useState([
@@ -30,6 +31,10 @@ const Cart = () => {
 
     const calculateTotal = () => {
         return cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+    };
+
+    const calculateCartItemCount = () => {
+        return cartItems.reduce((total, item) => total + item.quantity, 0);
     };
 
     return (

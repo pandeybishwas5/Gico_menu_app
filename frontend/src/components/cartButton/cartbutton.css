@@ -3,15 +3,15 @@
     bottom: 20px;
     right: 20px;
     z-index: 1000;
-    background-color: #ecf1e4;
+    background-color: #add867;
     border-radius: 50%;
     width: 60px;
     height: 60px;
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease;
+    border: none;
 }
 
 .cart-button img {
@@ -21,6 +21,18 @@
 }
 
 .cart-button:hover {
-    background-color: #b6ab96;
+    background-color: #74a524;
     transform: scale(1.1);
+}
+
+.cart-item-count {
+    position: absolute;
+    top: -12px;
+    right: 35px;
+    background-color: #fff; /* Changed from rgb(255, 255, 255) for simplicity */
+    color: #000;
+    font-size: 12px;
+    padding: 4px;
+    border: none; 
+    border-radius: 50%;
 }
