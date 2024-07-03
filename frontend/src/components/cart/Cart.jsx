@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './cart.css';
 
 const Cart = () => {
-    // Example initial cart items
+   
     const [cartItems, setCartItems] = useState([
         {
             id: 1,
