@@ -1,0 +1,57 @@
+/* MenuItems.css */
+.menu-container {
+    margin: 20px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.menu-container h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #343a40;
+}
+
+.menu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.menu-item:last-child {
+    border-bottom: none;
+}
+
+.menu-item h2 {
+    font-size: 1.5em;
+    color: #495057;
+}
+
+.menu-item p {
+    margin: 5px 0;
+    color: #6c757d;
+}
+
+.menu-item .price {
+    font-size: 1.25em;
+    color: #28a745;
+}
+
+@media (max-width: 768px) {
+    .menu-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .menu-item h2 {
+        margin-bottom: 10px;
+    }
+
+    .menu-item .price {
+        align-self: flex-end;
+    }
+}

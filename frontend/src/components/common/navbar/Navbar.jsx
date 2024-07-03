@@ -10,7 +10,7 @@ export default function Navbar() {
             <nav className={isMobile ? "nav-links-mobile" : "nav-links"} 
                 onClick={() => setIsMobile(false)}>
                 <Link to="/">Home</Link>
-                <Link to="/menu-items">Menu</Link>
+                <Link to="/menuitems">Menu</Link>
                 <Link to="/reservations">Reservations</Link>
                 <Link to="/contact">Contact</Link>
                 <Link to="/about">About</Link>
