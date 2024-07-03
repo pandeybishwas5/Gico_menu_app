@@ -5,7 +5,7 @@ export default function Home() {
     return (
         <div className="home">
             <section className="welcome">
-                <h1>Welcome to GICO</h1>
+                <h1>Welcome to GICO Eatery</h1>
                 <p>Experience the best dining in town with our exquisite dishes and exceptional service.</p>
             </section>
 

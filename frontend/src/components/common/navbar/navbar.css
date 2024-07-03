@@ -1,20 +1,21 @@
 .nav-links, .nav-links-mobile {
     display: flex;
+    font-size: large;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background-color: #333;
-    color: white;
+    background-color: white;
+    color: rgb(10, 10, 10);
 }
 
 .nav-links a, .nav-links-mobile a {
     text-decoration: none;
-    color: white;
-    margin: 0 10px;
+    color: rgb(8, 8, 8);
+    margin: 0 20px;
 }
 
 .nav-links a:hover, .nav-links-mobile a:hover {
-    text-decoration: underline;
+    transform: scale(120%);
 }
 
 /* Mobile menu icon */
@@ -34,7 +35,7 @@
     top: 60px;
     right: 0;
     background-color: #333;
-    width: 100%;
+    width: 50%;
     height: calc(100vh - 60px);
     z-index: 1;
 }

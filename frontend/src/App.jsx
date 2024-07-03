@@ -7,7 +7,7 @@ import CartButton from './components/cartButton/CartButton';
 import Cart from './components/cart/Cart';
 import CartModal from './components/cart/cartModal/CartModal';
 import MenuItems from './components/menuItems/MenuItems';
-
+import './app.css';
 
 
 function App() {

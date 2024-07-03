@@ -4,7 +4,8 @@ import './footer.css';
 
 export default function Footer() {
     return (
-        <footer className="footer">
+        <>
+                   <footer className="footer">
             <div className="footer-content">
                 <div className="footer-section about">
                     <h2>About Us</h2>
@@ -31,9 +32,11 @@ export default function Footer() {
                     <p>Phone: (123) 456-7890</p>
                 </div>
             </div>
+            </footer>
             <div className="footer-bottom">
                 <p>&copy; {new Date().getFullYear()} GICO Restaurant. All Rights Reserved.</p>
             </div>
-        </footer>
+        </>
+ 
     ) 
 }

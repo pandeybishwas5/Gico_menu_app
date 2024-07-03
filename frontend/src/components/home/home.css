@@ -1,30 +1,42 @@
+/* home.css */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
 .home {
     text-align: center;
     padding: 20px;
 }
 
 .welcome {
-    background-color: #f8f8f8;
-    padding: 40px 20px;
-    margin-bottom: 20px;
+    padding: 50px 0;
+    color: rgb(0, 0, 0);
+    animation: fadeIn 2s ease-in-out;
 }
 
 .welcome h1 {
-    font-size: 2.5em;
-    margin-bottom: 10px;
+    font-size: 3em;
+    margin-bottom: 20px;
 }
 
 .welcome p {
-    font-size: 1.2em;
+    font-size: 1.5em;
 }
 
 .featured-dishes {
-    padding: 20px;
+    padding: 60px 60px;
 }
 
 .featured-dishes h2 {
-    font-size: 2em;
+    font-size: 2.5em;
     margin-bottom: 20px;
+    color: #6B8B1E;
+    animation: slideIn 1s ease-in-out;
 }
 
 .dishes {
@@ -34,33 +46,64 @@
 }
 
 .dish {
-    margin: 10px;
-    text-align: center;
+    background: white;
+    width: 50%;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.dish:hover {
+    transform: scale(1.05);
 }
 
 .dish img {
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
+    width: 100%;
     border-radius: 10px;
+    margin-bottom: 10px;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.dish:hover img {
+    opacity: 0.8;
 }
 
 .dish h3 {
     font-size: 1.5em;
-    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #6B8B1E;
+}
+
+.dish p {
+    font-size: 1em;
+    color: #666;
 }
 
 .special-offers {
-    background-color: #f0f0f0;
-    padding: 20px;
-    margin-top: 20px;
+    padding: 50px 20px;
+    background-color: #f0f0e9;
+    color: #333;
+    animation: fadeIn 2s ease-in-out;
 }
 
 .special-offers h2 {
-    font-size: 2em;
-    margin-bottom: 10px;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #6B8B1E;
 }
 
 .special-offers p {
     font-size: 1.2em;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(0); }
 }
