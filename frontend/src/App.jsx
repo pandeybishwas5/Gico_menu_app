@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 import Header from './components/common/header/Header';
 import Home from './components/home/Home';
 import Footer from './components/common/footer/Footer';
@@ -8,10 +8,11 @@ import Cart from './components/cart/Cart';
 import CartModal from './components/cart/cartModal/CartModal';
 import MenuItems from './components/menuItems/MenuItems';
 import './app.css';
-
+import Navbar from './components/common/navbar/Navbar';
+import HomeContent from './components/homeContent/HomeContent';
 
 function App() {
-  const [isCartOpen, setIsCartOpen] = useState(false);
+    const [isCartOpen, setIsCartOpen] = useState(false);
 
     const [cartItems, setCartItems] = useState([
         {
@@ -43,22 +44,27 @@ function App() {
     };
 
     const calculateCartItemCount = () => {
-      return cartItems.reduce((total, item) => total + item.quantity, 0);
-  };
+        return cartItems.reduce((total, item) => total + item.quantity, 0);
+    };
 
+    const HeaderWrapper = () => {
+        const location = useLocation();
+        return location.pathname === '/' ? <Header /> : null;
+    };
 
-
-  return (
-    <Router>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/menuitems" element={<MenuItems />} />   
-      </Routes>
-      <Footer />
-      <CartButton onClick={() => setIsCartOpen(true)} cartItemCount={calculateCartItemCount()} />
-      <CartModal
+    return (
+        <Router>
+            <Navbar />
+            <HeaderWrapper />
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/cart" element={<Cart />} />
+                <Route path="/menuitems" element={<MenuItems />} />
+            </Routes>
+            <HomeContent />
+            <Footer />
+            <CartButton onClick={() => setIsCartOpen(true)} cartItemCount={calculateCartItemCount()} />
+            <CartModal
                 isOpen={isCartOpen}
                 onClose={() => setIsCartOpen(false)}
                 cartItems={cartItems}
@@ -66,8 +72,8 @@ function App() {
                 handleQuantityChange={handleQuantityChange}
                 calculateTotal={calculateTotal}
             />
-    </Router>
-  );
+        </Router>
+    );
 }
 
 export default App;
