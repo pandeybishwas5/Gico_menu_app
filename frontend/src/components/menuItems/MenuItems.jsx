@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import './MenuItems.css';
+import './menuitems.css';
 
 function MenuItems() {
     const [menuItems, setMenuItems] = useState([]);
 
     useEffect(() => {
-        axios.get('http://localhost:8000/api/menu')
+        axios.get('http://localhost:8000/api/menu/')
             .then(response => setMenuItems(response.data))
             .catch(error => console.error('Error fetching menu items:', error));
     }, []);

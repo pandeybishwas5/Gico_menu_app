@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'myauth.apps.MyauthConfig',
     'drf_spectacular',
     'django_filters',
+    # 'frontend',
 ]
 
 MIDDLEWARE = [
