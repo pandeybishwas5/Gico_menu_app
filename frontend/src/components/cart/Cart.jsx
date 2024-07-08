@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import './cart.css';
 
+
 const Cart = () => {
-    // Example initial cart items
+   
     const [cartItems, setCartItems] = useState([
         {
             id: 1,
@@ -30,6 +31,10 @@ const Cart = () => {
 
     const calculateTotal = () => {
         return cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+    };
+
+    const calculateCartItemCount = () => {
+        return cartItems.reduce((total, item) => total + item.quantity, 0);
     };
 
     return (
