@@ -1,57 +1,68 @@
-.nav-links, .nav-links-mobile {
+/* Styles for the navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #ffffff; 
+    z-index: 1000;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
     padding: 10px 20px;
-    background-color: #333;
-    color: white;
-}
-
-.nav-links a, .nav-links-mobile a {
+  }
+  
+  .nav-links, .nav-links-mobile {
+    list-style: none;
+    display: flex;
+    align-items: center;
+  }
+  
+  .nav-links-mobile {
+    display: none;
+    flex-direction: column;
+    background-color: #ffffff;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+  }
+  
+  .nav-links a, .nav-links-mobile a {
+    color: rgb(0, 0, 0);
     text-decoration: none;
-    color: white;
-    margin: 0 10px;
+    padding: 10px 20px;
+    display: block;
+    border-radius: 8px;
+  }
+  
+  .nav-links a:hover,
+  .nav-links-mobile a:hover {
+    background-color: #d9dbd0;
+    transform: scale(1.05);
 }
 
-.nav-links a:hover, .nav-links-mobile a:hover {
-    text-decoration: underline;
-}
-
-/* Mobile menu icon */
-.mobile-menu-icon {
+  .mobile-menu-icon {
     display: none;
     background: none;
     border: none;
-    font-size: 1.5em;
-    color: white;
-}
-
-/* Mobile nav links */
-.nav-links-mobile {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 60px;
-    right: 0;
-    background-color: #333;
-    width: 100%;
-    height: calc(100vh - 60px);
-    z-index: 1;
-}
-
-.nav-links-mobile a {
-    padding: 10px 0;
-    margin: 10px 0;
-    text-align: center;
-}
-
-/* Media queries for responsiveness */
-@media (max-width: 768px) {
-    .mobile-menu-icon {
-        display: block;
-    }
-
+    color: #6B8B1E;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  @media (max-width: 768px) {
     .nav-links {
-        display: none;
+      display: none;
     }
-}
+    .nav-links-mobile {
+      display: flex;
+    }
+    .mobile-menu-icon {
+      display: block;
+    }
+  }
+  
+  .logo img {
+    height: 40px;
+  }
+  

@@ -50,6 +50,7 @@ class MenuItemDetailView(RetrieveAPIView):
         serializer = self.get_serializer(instance)
         return Response(serializer.data)
 
+# Create your views here.
 
 class BasketAPIView(APIView):
     serializer_class = BasketItemSerializer
