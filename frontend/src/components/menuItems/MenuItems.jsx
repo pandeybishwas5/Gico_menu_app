@@ -1,25 +1,34 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
 import './menuitems.css';
+import { getMenuItems } from '../api/api';
 
 function MenuItems() {
     const [menuItems, setMenuItems] = useState([]);
 
     useEffect(() => {
-        axios.get('http://localhost:8000/api/menu/')
-            .then(response => setMenuItems(response.data))
-            .catch(error => console.error('Error fetching menu items:', error));
+        const fetchMenuItems = async () => {
+            try {
+                const data = await getMenuItems();
+                setMenuItems(data);
+            } catch (error) {
+                console.error('Error fetching menu items:', error);
+            }
+        };
+
+        fetchMenuItems();
     }, []);
 
     return (
-        <div>
+        <div className="menu-container">
             <h1>Menu</h1>
             <ul>
                 {menuItems.map(item => (
-                    <li key={item.id}>
-                        <h2>{item.name}</h2>
-                        <p>{item.description}</p>
-                        <p>${item.price}</p>
+                    <li key={item.id} className="menu-item">
+                        <div className="text-container">
+                            <h2>{item.name}</h2>
+                            <p>{item.description || 'No description available'}</p>
+                        </div>
+                        <div className="price">${Number(item.price).toFixed(2)}</div>
                     </li>
                 ))}
             </ul>
