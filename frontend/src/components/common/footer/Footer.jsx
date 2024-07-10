@@ -16,7 +16,7 @@ export default function Footer() {
                     </div>
                     <div className="footer-section hours">
                         <h2>Trading Hours</h2>
-                        <p>Monday - Sunday: 6am - 9pm</p>
+                        <p>7 Days: 8am - Till late</p>
                     </div>
                     <div className="footer-section links">
                         <h2>Quick Links</h2>

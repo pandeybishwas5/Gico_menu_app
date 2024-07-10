@@ -2,16 +2,16 @@ from django.db import models
 
 class MenuItem(models.Model):
     CATEGORY_CHOICES = [
-        ('starter', 'Starter'),
-        ('pasta', 'Pasta'),
-        ('risotto', 'Risotto'),
-        ('deep_fried_and_burger', 'Deep Fried and Burger'),
-        ('fish_and_seafood', 'Fish and Seafood'),
-        ('meat', 'Meat'),
-        ('side_dish', 'Side Dish'),
-        ('salad', 'Salad'),
-        ('dessert', 'Dessert'),
-        ('kid_meal', 'Kid Meal'),
+        ('Starter', 'Starter'),
+        ('Pasta', 'Pasta'),
+        ('Risotto', 'Risotto'),
+        ('Deep Fried and Burger', 'Deep Fried and Burger'),
+        ('Fish and Seafood', 'Fish and Seafood'),
+        ('Meat', 'Meat'),
+        ('Side Dish', 'Side Dish'),
+        ('Salad', 'Salad'),
+        ('Dessert', 'Dessert'),
+        ('Kid Meal', 'Kid Meal'),
     ]
 
     name = models.CharField(max_length=100)

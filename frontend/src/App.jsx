@@ -13,21 +13,7 @@ import HomeContent from './components/homeContent/HomeContent';
 
 function App() {
     const [isCartOpen, setIsCartOpen] = useState(false);
-
-    const [cartItems, setCartItems] = useState([
-        {
-            id: 1,
-            name: 'Dish 1',
-            price: 10,
-            quantity: 1,
-        },
-        {
-            id: 2,
-            name: 'Dish 2',
-            price: 15,
-            quantity: 2,
-        },
-    ]);
+    const [cartItems, setCartItems] = useState([]);
 
     const handleRemoveItem = (id) => {
         setCartItems(cartItems.filter(item => item.id !== id));
@@ -52,6 +38,22 @@ function App() {
         return location.pathname === '/' ? <Header /> : null;
     };
 
+    // Function to add item to cart
+    const addToCart = (item) => {
+        // Check if item is already in cart
+        const existingItem = cartItems.find(cartItem => cartItem.id === item.id);
+        if (existingItem) {
+            // Item already exists, increase quantity
+            const updatedItems = cartItems.map(cartItem =>
+                cartItem.id === item.id ? { ...cartItem, quantity: cartItem.quantity + 1 } : cartItem
+            );
+            setCartItems(updatedItems);
+        } else {
+            // Item not in cart, add with quantity 1
+            setCartItems([...cartItems, { ...item, quantity: 1 }]);
+        }
+    };
+
     return (
         <Router>
             <Navbar />
@@ -59,7 +61,8 @@ function App() {
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/cart" element={<Cart />} />
-                <Route path="/menuitems" element={<MenuItems />} />
+                {/* Pass addToCart function to MenuItems */}
+                <Route path="/menuitems" element={<MenuItems handleAddtoCart={addToCart} />} />
             </Routes>
             <HomeContent />
             <Footer />
