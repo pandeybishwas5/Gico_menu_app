@@ -4,7 +4,7 @@ import './cartbutton.css';
 const CartButton = ({ onClick, cartItemCount }) => {
     return (
         <button className="cart-button" onClick={onClick}>
-            <img src="cartbutton.png" alt="Cart" />
+            <img src="cartButton.png" alt="Cart" />
             <span className="cart-item-count">{cartItemCount}</span>
         </button>
     );

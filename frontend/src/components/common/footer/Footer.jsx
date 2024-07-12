@@ -31,9 +31,9 @@ export default function Footer() {
                     </div>
                     <div className="footer-section contact">
                         <h2>Contact Us</h2>
-                        <p>1234 Delicious Street, Food City, FC 12345</p>
-                        <p>Email: info@gicorestaurant.com</p>
-                        <p>Phone: (123) 456-7890</p>
+                        <p>SHOP 7, 143 GLYNBURN RD, FIRLE SA 5070</p>
+                        <p>Email: gicoeatery@gmail.com</p>
+                        <p>Phone: 08 7112 5509</p>
                     </div>
                 </div>
             </footer>

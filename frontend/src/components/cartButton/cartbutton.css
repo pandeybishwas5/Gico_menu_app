@@ -3,7 +3,7 @@
     bottom: 20px;
     right: 20px;
     z-index: 1000;
-    background-color: #add867;
+    background-color: #ffffff;
     border-radius: 50%;
     width: 60px;
     height: 60px;
@@ -15,13 +15,13 @@
 }
 
 .cart-button img {
-    width: 60px;
-    height: 60px;
+    width: 90px;
+    height: 65px;
     object-fit: contain;
 }
 
 .cart-button:hover {
-    background-color: #74a524;
+    background-color: #ffffff;
     transform: scale(1.1);
 }
 
@@ -29,9 +29,9 @@
     position: absolute;
     top: -12px;
     right: 35px;
-    background-color: #ad9b9b; 
+    background-color: #ffffff; 
     color: #000;
-    font-size: 12px;
+    font-size: 16px;
     padding: 4px;
     border: none; 
     border-radius: 50%;
