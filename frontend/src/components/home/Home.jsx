@@ -13,7 +13,7 @@ export default function Home() {
             </section>
 
             <div className="tabs-row">
-                <Link to="/menuitems" className="tab" style={{ backgroundImage: "url('menu.jpg')" }}>
+                <Link to="/menu" className="tab" style={{ backgroundImage: "url('menu.jpg')" }}>
                     <div className="overlay">Menu</div>
                 </Link>
                 <Link to="/reservations" className="tab" style={{ backgroundImage: "url('reservations.jpg')" }}>

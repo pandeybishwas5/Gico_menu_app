@@ -43,7 +43,7 @@ export default function Header() {
                         <p>Experience the best dining in town with our exquisite dishes and exceptional service.</p>
                     </div>
                     <div className="btn-group">
-                        <Link to="/menuitems" className="order-button">Order Online</Link>
+                        <Link to="/menu" className="order-button">Order Online</Link>
                     </div>
                 </div>
             </div>

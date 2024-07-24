@@ -11,7 +11,7 @@ function MenuItems({ handleAddtoCart }) {
         const fetchMenuItems = async () => {
             try {
                 const data = await getMenuItems();
-                setMenuItems(data);
+                setMenuItems(data || []);
             } catch (error) {
                 console.error('Error fetching menu items:', error);
             }
@@ -20,40 +20,40 @@ function MenuItems({ handleAddtoCart }) {
         fetchMenuItems();
     }, []);
 
-    // Function to handle scrolling and activate category
     const handleScroll = () => {
         const scrollPosition = menuRef.current.scrollTop;
-        const menuItemElements = document.querySelectorAll('.menu-item');
+        const categorySections = document.querySelectorAll('.category-section');
 
-        menuItemElements.forEach((menuItem) => {
-            const menuItemTop = menuItem.offsetTop - menuRef.current.offsetTop;
-            const menuItemBottom = menuItemTop + menuItem.clientHeight;
+        categorySections.forEach((section) => {
+            const sectionTop = section.offsetTop - menuRef.current.offsetTop;
+            const sectionBottom = sectionTop + section.clientHeight;
 
-            if (scrollPosition >= menuItemTop && scrollPosition < menuItemBottom) {
-                const category = menuItem.getAttribute('data-category');
+            if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                const category = section.querySelector('.category-header').innerText;
                 setActiveCategory(category);
             }
         });
     };
 
-    // Function to add item to cart
     const addToCart = (item) => {
         handleAddtoCart(item);
     };
 
-    // Function to render menu items grouped by category
     const renderMenuItems = () => {
-        const categories = [...new Set(menuItems.map((item) => item.category))];
+        if (menuItems.length === 0) {
+            return <p>No menu items available.</p>;
+        }
+
+        const categories = [...new Set(menuItems.map((item) => item.category.name))];
         return categories.map((category) => (
             <div key={category} className="category-section">
                 <h2 className="category-header">{category}</h2>
                 {menuItems
-                    .filter((item) => item.category === category)
+                    .filter((item) => item.category.name === category)
                     .map((item) => (
                         <div
                             key={item.id}
                             className="menu-item"
-                            data-category={item.category}
                             onClick={() => addToCart(item)}
                         >
                             <h3>{item.name}</h3>
@@ -66,9 +66,8 @@ function MenuItems({ handleAddtoCart }) {
         ));
     };
 
-    // Function to generate unique categories
     const generateCategories = () => {
-        const categories = [...new Set(menuItems.map((item) => item.category))];
+        const categories = [...new Set(menuItems.map((item) => item.category.name))];
         return categories.map((category) => (
             <div
                 key={category}
@@ -80,20 +79,22 @@ function MenuItems({ handleAddtoCart }) {
         ));
     };
 
-    // Function to scroll to specific category
     const scrollToCategory = (category) => {
-        const menuItem = document.querySelector(`.menu-item[data-category="${category}"]`);
-        if (menuItem) {
-            menuItem.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        const categoryHeader = document.querySelector(`.category-header`);
+        const categorySection = Array.from(document.querySelectorAll('.category-section'))
+            .find(section => section.querySelector('.category-header').innerText === category);
+
+        if (categorySection) {
+            categorySection.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
     };
 
     return (
         <div className="menu-container">
-            <div className="menu-categories" ref={menuRef} onScroll={handleScroll}>
+            <div className="menu-categories">
                 {generateCategories()}
             </div>
-            <div className="menu-items">
+            <div className="menu-items" ref={menuRef} onScroll={handleScroll}>
                 {renderMenuItems()}
             </div>
         </div>
