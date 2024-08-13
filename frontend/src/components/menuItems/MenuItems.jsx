@@ -21,11 +21,11 @@ function MenuItems({ handleAddtoCart }) {
     }, []);
 
     const handleScroll = () => {
-        const scrollPosition = menuRef.current.scrollTop;
+        const scrollPosition = window.scrollY;
         const categorySections = document.querySelectorAll('.category-section');
 
         categorySections.forEach((section) => {
-            const sectionTop = section.offsetTop - menuRef.current.offsetTop;
+            const sectionTop = section.offsetTop;
             const sectionBottom = sectionTop + section.clientHeight;
 
             if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
@@ -48,20 +48,22 @@ function MenuItems({ handleAddtoCart }) {
         return categories.map((category) => (
             <div key={category} className="category-section">
                 <h2 className="category-header">{category}</h2>
-                {menuItems
-                    .filter((item) => item.category.name === category)
-                    .map((item) => (
-                        <div
-                            key={item.id}
-                            className="menu-item"
-                            onClick={() => addToCart(item)}
-                        >
-                            <h3>{item.name}</h3>
-                            <p>{item.description || 'No description available'}</p>
-                            <div className="price">${Number(item.price).toFixed(2)}</div>
-                            <button>Add to Cart</button>
-                        </div>
-                    ))}
+                <div className="menu-items-grid">
+                    {menuItems
+                        .filter((item) => item.category.name === category)
+                        .map((item) => (
+                            <div
+                                key={item.id}
+                                className="menu-item"
+                                onClick={() => addToCart(item)}
+                            >
+                                <h3>{item.name}</h3>
+                                <p>{item.description || 'No description available'}</p>
+                                <div className="price">${Number(item.price).toFixed(2)}</div>
+                                <button>Add to Cart</button>
+                            </div>
+                        ))}
+                </div>
             </div>
         ));
     };
@@ -80,21 +82,27 @@ function MenuItems({ handleAddtoCart }) {
     };
 
     const scrollToCategory = (category) => {
-        const categoryHeader = document.querySelector(`.category-header`);
         const categorySection = Array.from(document.querySelectorAll('.category-section'))
             .find(section => section.querySelector('.category-header').innerText === category);
 
         if (categorySection) {
-            categorySection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            window.scrollTo({ top: categorySection.offsetTop - 20, behavior: 'smooth' });
         }
     };
+
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
 
     return (
         <div className="menu-container">
             <div className="menu-categories">
                 {generateCategories()}
             </div>
-            <div className="menu-items" ref={menuRef} onScroll={handleScroll}>
+            <div className="menu-items">
                 {renderMenuItems()}
             </div>
         </div>

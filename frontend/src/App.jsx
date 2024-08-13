@@ -4,7 +4,6 @@ import Header from './components/common/header/Header';
 import Home from './components/home/Home';
 import Footer from './components/common/footer/Footer';
 import CartButton from './components/cartButton/CartButton';
-import Cart from './components/cart/Cart';
 import CartModal from './components/cart/cartModal/CartModal';
 import MenuItems from './components/menuItems/MenuItems';
 import './app.css';
@@ -67,7 +66,6 @@ function App() {
             <HeaderWrapper />
             <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/cart" element={<Cart />} />
                 <Route path="/menu" element={<MenuItems handleAddtoCart={addToCart} />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/about" element={<About />} />
