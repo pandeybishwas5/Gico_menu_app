@@ -13,6 +13,7 @@ import Contact from './components/contact/Contact';
 import About from './components/about/About';
 import Reservation from './components/reservation/Reservation';
 import ScrollToTop from './components/scrolltotop/ScrollToTop';
+import Login from './components/login/Login';
 
 function App() {
     const [isCartOpen, setIsCartOpen] = useState(false);
@@ -59,6 +60,34 @@ function App() {
         }
     };
 
+    const handleCheckoutClick = async () => {
+        try {
+            const response = await fetch('http://localhost:8000/api/order/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    items: cartItems,
+                    total_price: calculateTotal(),
+                }),
+            });
+    
+            const data = await response.json();
+    
+            if (data.status === 'success') {
+                alert(`Order placed successfully! Order ID: ${data.order_id}`);
+                onClose();
+            } else {
+                alert(`Error: ${data.message}`);
+            }
+        } catch (error) {
+            alert('An error occurred while placing the order.');
+            console.error('Checkout error:', error);
+        }
+    };
+    
+
     return (
         <div>
         <ScrollToTop />
@@ -70,6 +99,7 @@ function App() {
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/reservations" element={<Reservation />} />
+                <Route path="/login" element={<Login />} />
             </Routes>
             <ConditionalHomeContent />
             <Footer />
@@ -81,6 +111,7 @@ function App() {
                 handleRemoveItem={handleRemoveItem}
                 handleQuantityChange={handleQuantityChange}
                 calculateTotal={calculateTotal}
+                handleCheckoutClick={handleCheckoutClick}
             />
         </div>
     );

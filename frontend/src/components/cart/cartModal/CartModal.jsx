@@ -1,7 +1,7 @@
 import React from 'react';
 import './cartmodal.css';
 
-const CartModal = ({ isOpen, onClose, cartItems, handleRemoveItem, handleQuantityChange, calculateTotal }) => {
+const CartModal = ({ isOpen, onClose, cartItems, handleRemoveItem, handleQuantityChange, calculateTotal, handleCheckoutClick }) => {
     if (!isOpen) return null;
 
     return (
@@ -30,7 +30,7 @@ const CartModal = ({ isOpen, onClose, cartItems, handleRemoveItem, handleQuantit
                 </div>
                 <div className="cart-total">
                     <h3>Total: ${calculateTotal()}</h3>
-                    <button className="checkout-button">Checkout</button>
+                    <button className="checkout-button" onClick={handleCheckoutClick}>Checkout</button>
                 </div>
             </div>
         </div>
